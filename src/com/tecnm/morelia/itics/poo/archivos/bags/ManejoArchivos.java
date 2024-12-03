@@ -13,10 +13,12 @@ public class ManejoArchivos {
     public void leerArchivo(String fileName)  {
         try (FileReader fr = new FileReader(fileName);
              BufferedReader br = new BufferedReader(fr)) {
-            System.out.println(br.readLine());
+            for(String line = br.readLine(); line != null; line = br.readLine()) {
+                System.out.println(line);
+            }
         }
         catch (IOException e) {
-            System.err.println("An error occurred while writing to the file: " + e.getMessage());
+            System.err.println("An error occurred while reading from the file: " + e.getMessage());
         }
     }
 
