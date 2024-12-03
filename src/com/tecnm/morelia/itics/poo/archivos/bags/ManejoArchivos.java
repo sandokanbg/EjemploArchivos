@@ -1,11 +1,7 @@
 package com.tecnm.morelia.itics.poo.archivos.bags;
 
+
 import java.io.*;
-import java.net.URI;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class ManejoArchivos {
 
@@ -13,14 +9,26 @@ public class ManejoArchivos {
     public ManejoArchivos() {
     }
 
-    public String setPath(String fileName){
-        return ("C:///Users/sando/" + fileName);
-    }
-    public void leerArchivo(String path) throws IOException {
-        try (FileReader fr = new FileReader(path);
+
+    public void leerArchivo(String fileName)  {
+        try (FileReader fr = new FileReader(fileName);
              BufferedReader br = new BufferedReader(fr)) {
             System.out.println(br.readLine());
         }
+        catch (IOException e) {
+            System.err.println("An error occurred while writing to the file: " + e.getMessage());
+        }
+    }
+
+    public void escribirArchivo(String fileName, String content) {
+        // Using try-with-resources to ensure the writer is closed properly
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(content);
+            System.out.println("File written successfully.");
+         }
+         catch (IOException e) {
+             System.err.println("An error occurred while writing to the file: " + e.getMessage());
+         }
     }
 }
 

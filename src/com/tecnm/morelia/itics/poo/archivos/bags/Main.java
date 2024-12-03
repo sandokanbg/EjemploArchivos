@@ -1,11 +1,11 @@
 package com.tecnm.morelia.itics.poo.archivos.bags;
 
-import java.io.IOException;
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         ManejoArchivos manejo1 = new ManejoArchivos();
-        //System.out.print(manejo1.setPath("ejemplo1.txt"));
-        manejo1.leerArchivo(manejo1.setPath("ejemplo1.txt"));
+
+        manejo1.leerArchivo("ejemplo1.txt");
+
+        manejo1.escribirArchivo("ejemplo2.txt", "Este es el contenido que pongo en el archivo");
     }
 }
