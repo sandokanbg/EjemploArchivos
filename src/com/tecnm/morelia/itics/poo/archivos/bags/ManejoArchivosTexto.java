@@ -3,10 +3,10 @@ package com.tecnm.morelia.itics.poo.archivos.bags;
 
 import java.io.*;
 
-public class ManejoArchivos {
+public class ManejoArchivosTexto {
 
 
-    public ManejoArchivos() {
+    public ManejoArchivosTexto() {
     }
 
 
